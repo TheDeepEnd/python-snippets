@@ -33,4 +33,12 @@ target = (int(user_month) * 31) + int(user_day)
 todays_date_string = str(now.month) + "/" + str(now.day)
 target_date_string = str(user_month) + "/" + str(user_day)
 
-print "There are", target % days_elapsed, "days from", todays_date_string, "to", target_date_string
+days_till = 0
+
+if target > days_elapsed:
+    days_till = target - days_elapsed
+else:
+    days_till += 365 - days_elapsed
+    days_till += target % days_elapsed
+
+print "There are", days_till, "days from", todays_date_string, "to", target_date_string
